@@ -7,6 +7,7 @@ import org.springframework.web.reactive.function.client.WebClient;
 
 @Service
     public class WeatherService {
+    private  final String UNITS="metric";
         private final WebClient webClient;
         private final String apiKey;
 
@@ -21,6 +22,7 @@ import org.springframework.web.reactive.function.client.WebClient;
                             .path("/weather")
                             .queryParam("q", cityName)
                             .queryParam("appid", apiKey)
+                            .queryParam("units",UNITS)
                             .build())
                     .retrieve()
                     .bodyToMono(OpenWeather.class)
