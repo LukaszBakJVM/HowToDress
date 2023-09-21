@@ -15,7 +15,7 @@ import org.springframework.web.reactive.function.client.WebClient;
             this.apiKey = apiKey;
         }
 
-        public City getWeatherDataByCity(String cityName) {
+        public OpenWeather getWeatherDataByCity(String cityName) {
             return webClient.get()
                     .uri(uriBuilder -> uriBuilder
                             .path("/weather")
@@ -23,7 +23,7 @@ import org.springframework.web.reactive.function.client.WebClient;
                             .queryParam("appid", apiKey)
                             .build())
                     .retrieve()
-                    .bodyToMono(City.class)
+                    .bodyToMono(OpenWeather.class)
                     .block();
         }
 }
