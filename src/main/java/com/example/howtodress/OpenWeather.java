@@ -1,4 +1,6 @@
 package com.example.howtodress;
 
-public record OpenWeather(OpenWeatherMain main,OpenWeatherWind wind) {
+import java.util.List;
+
+public record OpenWeather(List<OpenWeatherWeather> weather,OpenWeatherMain main, OpenWeatherWind wind ) {
 }

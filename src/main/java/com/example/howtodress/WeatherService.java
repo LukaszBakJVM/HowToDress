@@ -11,6 +11,7 @@ import org.springframework.web.reactive.function.client.WebClient;
     private  final String UNITS="metric";
         private final WebClient webClient;
         private final String apiKey;
+        private final String LANG="pl";
 
         public WeatherService(WebClient.Builder webClientBuilder, @Value("${openweathermap.apiKey}") String apiKey) {
             this.webClient = webClientBuilder.baseUrl("https://api.openweathermap.org/data/2.5").build();
@@ -25,6 +26,7 @@ import org.springframework.web.reactive.function.client.WebClient;
                             .queryParam("q",city)
                             .queryParam("appid", apiKey)
                             .queryParam("units",UNITS)
+                            .queryParam("lang",LANG)
                             .build())
                     .retrieve()
                     .bodyToMono(OpenWeather.class)
