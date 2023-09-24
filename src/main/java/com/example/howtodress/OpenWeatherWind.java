@@ -1,4 +1,4 @@
 package com.example.howtodress;
 
-public record OpenWeatherWind(float speed) {
+public record OpenWeatherWind(double speed) {
 }

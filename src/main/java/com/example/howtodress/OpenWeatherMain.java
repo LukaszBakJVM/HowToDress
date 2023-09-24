@@ -1,4 +1,4 @@
 package com.example.howtodress;
 
-public record OpenWeatherMain(float temp,int humidity) {
+public record OpenWeatherMain(double temp,int humidity) {
 }

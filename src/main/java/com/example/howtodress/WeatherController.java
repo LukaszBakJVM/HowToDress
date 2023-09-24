@@ -14,7 +14,7 @@ public class WeatherController {
         this.weatherService = weatherService;
     }
     @GetMapping("/{city}")
-    OpenWeather weatherData(@PathVariable String city){
-        return weatherService.getWeatherDataByCity(city);
+    OpenWeather city (@PathVariable String city){
+      return weatherService.getWeatherDataByCity(city);
     }
 }
