@@ -1,7 +1,7 @@
 package com.example.howtodress;
 
 
-import org.springframework.beans.factory.annotation.Value;
+
 import org.springframework.stereotype.Service;
 import org.springframework.web.reactive.function.client.WebClient;
 
@@ -12,12 +12,12 @@ import org.springframework.web.reactive.function.client.WebClient;
     private  final String UNITS="metric";
 
         private final WebClient webClient;
-        private final String apiKey;
+        private final String apiKey="your api key";
         private final String LANG="pl";
 
-        public WeatherService(WebClient.Builder webClientBuilder, @Value("${openweathermap.apiKey}") String apiKey) {
+        public WeatherService(WebClient.Builder webClientBuilder) {
             this.webClient = webClientBuilder.baseUrl("https://api.openweathermap.org/data/2.5").build();
-            this.apiKey = apiKey;
+
         }
 
         private OpenWeather getWeatherDataByCity() {
