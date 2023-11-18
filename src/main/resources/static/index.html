@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+
+<body>
+
+<form id="weatherForm" action="/weather" method="get">
+    <label for="city">Wpisz miasto:</label>
+    <input type="text" id="city" name="city" placeholder="Wpisz miasto">
+    <button type="button" onclick="submitForm()">Sprawdź pogodę</button>
+</form>
+
+<script>
+    function submitForm() {
+        var cityInput = document.getElementById('city');
+        var cityValue = cityInput.value;
+        var form = document.getElementById('weatherForm');
+        form.action = '/weather/' + cityValue;
+        form.submit();
+    }
+</script>
+</body>
+
+
+
+</html>
