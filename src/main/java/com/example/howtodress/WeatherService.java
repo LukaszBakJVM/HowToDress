@@ -7,13 +7,17 @@ import org.springframework.web.reactive.function.client.WebClient;
 
 @Service
     public class WeatherService {
+    private final int MEN_HOT = 0;
+    private final int MEN_COLD =1;
+    private final int WOMEN_HOT =2;
+    private final int WOMEN_COLD =3;
 
    public String city="{city}";
 
     private  final String UNITS="metric";
 
         private final WebClient webClient;
-        private final String apiKey="";
+        private final String apiKey="Api key";
         private final String LANG="pl";
 
         public WeatherService(WebClient.Builder webClientBuilder) {
@@ -40,7 +44,7 @@ import org.springframework.web.reactive.function.client.WebClient;
         
 
 
-         public    int howToDress(String s){
+         protected     int howToDress(String s){
 
                 double temp = (int)getWeatherDataByCity().main().temp();
 
@@ -54,9 +58,31 @@ import org.springframework.web.reactive.function.client.WebClient;
                 }else {
                     return 3;
                 }
+        }
+    protected String weather(int i){
 
+        String result;
+        switch (i){
 
-            }
+            case MEN_HOT:
+                result = "https://www.zalando.pl/odziez-meska-koszulki";
+                break;
+
+            case MEN_COLD:
+                result = "https://www.zalando.pl/odziez-meska-kurtki";
+                break;
+            case WOMEN_HOT:
+                result = "https://www.zalando.pl/odziez-damska-sukienki";
+                break;
+            case WOMEN_COLD:
+                result = "https://www.zalando.pl/odziez-damska-kurtki-plaszcze";
+                break;
+            default:
+                result = "http://localhost:8080";
+
+        }
+        return result;
+    }
 
 
 }
