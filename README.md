@@ -13,7 +13,7 @@ If anyone finds it please,  drop it off
 
 
 
-You have to add in    WeatherService ->   private final String apiKey="Api key";  
-Your api key .
+You have to add  Your api key in    WeatherService ->   private final String apiKey="Api key";  
+.
 
-you can access it by registering https://home.openweathermap.org/users/sign_up
+You can access it by registering https://home.openweathermap.org/users/sign_up
