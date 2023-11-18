@@ -9,4 +9,4 @@ After entering the city and selecting the gender, it takes you to the Zalando st
 
 I can't find an API or a store where it is based on temperature, wind, etc., and gender you can choose clothes.
 
-If someone finds it, I can drop it off.
+If anyone finds it please,  drop it off
