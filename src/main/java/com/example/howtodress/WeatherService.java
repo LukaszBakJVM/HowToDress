@@ -7,12 +7,13 @@ import org.springframework.web.reactive.function.client.WebClient;
 
 @Service
     public class WeatherService {
+
    public String city="{city}";
 
     private  final String UNITS="metric";
 
         private final WebClient webClient;
-        private final String apiKey="your api key";
+        private final String apiKey="";
         private final String LANG="pl";
 
         public WeatherService(WebClient.Builder webClientBuilder) {
@@ -21,6 +22,7 @@ import org.springframework.web.reactive.function.client.WebClient;
         }
 
         private OpenWeather getWeatherDataByCity() {
+
 
 
             return webClient.get()
@@ -38,17 +40,24 @@ import org.springframework.web.reactive.function.client.WebClient;
         
 
 
-         public    String howToDress(){
-                double speed = getWeatherDataByCity().wind().speed();
+         public    int howToDress(String s){
+
                 double temp = (int)getWeatherDataByCity().main().temp();
-                OpenWeatherWeather openWeatherWeather = getWeatherDataByCity().weather().get(0);
-                String description = openWeatherWeather.description();
-                if (speed>5||temp<14){
-                    return "Ubierz sie ciepło "+description+" "+temp+"C";
+
+
+             if (temp>14&&s.equals("Mężczyzna")){
+                    return 0;
+                }else if (temp<14&&s.equals("Mężczyzna")){
+                    return 1;
+                }else if (temp>14&&s.equals("Kobieta")){
+                    return 2;
+                }else {
+                    return 3;
                 }
-                return description+" "+temp+"C";
+
 
             }
+
 
 }
 

@@ -8,17 +8,29 @@
 <body>
 
 <form id="weatherForm" action="/weather" method="get">
-    <label for="city">Wpisz miasto:</label>
+    <label for="city">Wpisz Miasto:</label>
     <input type="text" id="city" name="city" placeholder="Wpisz miasto">
-    <button type="button" onclick="submitForm()">Sprawdź pogodę</button>
+
+    <div>
+        <label>Wybierz Płeć:</label>
+        <input type="radio" id="genderA" name="gender" value="Kobieta">
+        <label for="genderA">Kobieta</label>
+
+        <input type="radio" id="genderB" name="gender" value="Mężczyzna">
+        <label for="genderB">Mężczyzna</label>
+    </div>
+
+    <button type="submit">Wyślij</button>
 </form>
 
 <script>
     function submitForm() {
         var cityInput = document.getElementById('city');
         var cityValue = cityInput.value;
+        var genderInput = document.getElementsByName("gender");
+        var htmlElements = genderInput.values();
         var form = document.getElementById('weatherForm');
-        form.action = '/weather/' + cityValue;
+        form.action = '/weather/' + cityValue +""+htmlElements;
         form.submit();
     }
 </script>
