@@ -17,3 +17,5 @@ You have to add  Your api key in    WeatherService ->   private final String api
 .
 
 You can access it by registering https://home.openweathermap.org/users/sign_up
+
+To use http://localhost:8080
