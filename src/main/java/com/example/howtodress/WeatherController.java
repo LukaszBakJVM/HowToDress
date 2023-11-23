@@ -15,7 +15,7 @@ public class WeatherController {
     public WeatherController(WeatherService weatherService) {
         this.weatherService = weatherService;
     }
-    @GetMapping//("/{city}/{gender}")
+    @GetMapping
     void city (@RequestParam String city , @RequestParam String gender, HttpServletResponse response) throws IOException {
         weatherService.city = city;
         int i = weatherService.howToDress(gender);
